@@ -1,0 +1,256 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.taskbar-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Taskbar styles */
+.taskbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 10px;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.taskbar-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.taskbar-button img {
+    height: 30px;
+    cursor: pointer;
+}
+
+.details_icon {
+    display: none;
+    cursor: pointer;
+}
+
+/* Search bar styles */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 20px;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(red, green, blue, alpha);
+    padding: 0 20px;
+    gap: 2px;
+}
+
+.search-bar:hover input{
+    width: 200px;
+    border: 3px solid #ccc;
+    border-radius: 20px;
+}
+
+.search-bar input {
+    width: 0;
+    outline: none;
+    border: none;
+    transition: 0.8s;
+    background: transparent;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Hide Some Function */
+.details_icon{
+    display: none;
+}
+.outSideSearchBer {
+    display: none;
+}
+
+/* Image Scrolling */
+.image-slider{
+    width: 90%;
+    height: 150px;
+    margin: auto;
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.gallery-container {
+    height: 200px;
+    display: flex;
+    width: calc(250px * 12);
+    animation: scroll 40s linear infinite;
+}
+
+.gallery-container:hover{
+    animation-play-state: paused;
+}
+
+.gallery {
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    perspective: 100px;
+    transition: transform 0.5s ease; /* Smooth sliding transition */
+}
+
+.gallery img {
+    height: 100px;
+    width: auto;
+    transition: transform 1s;
+}
+
+@keyframes scroll {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(calc(-250px * 12));
+    }
+}
+
+.gallery-container::before,
+.gallery-container::after{
+    background: linear-gradient(to right, rgba(255 , 255 , 255, 1) 0%, rgba(255 , 255 , 255, 0) 100%);
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+}
+
+.gallery-container img:hover {
+    transform: translateZ(20px);
+}
+
+.gallery-container::before{
+    left: 0;
+    top: 0;
+}
+.gallery-container::after{
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+/* End Image Scrooling */
+
+/* Make it responsive */
+@media (max-width: 768px) {
+    .taskbar-buttons {
+        display: none;
+    }
+
+    .details_icon {
+        display: block;
+    }
+
+    .taskbar.active .taskbar-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+    }
+
+    .taskbar.active{
+        display: flex;
+        gap: 15px;
+    }
+
+    .search-bar{
+        display: none;
+    }
+
+    /* SearchBar Show */
+    .outSideSearchBer {
+        display: block;
+        max-width: 100%;
+        padding: 3px 5px;
+    }
+
+    .outside-search-bar{
+        width: 100%; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid #ccc;
+        border-radius: 20px;
+    }
+
+    .outside-search-bar img{
+        padding: 0 10px;
+        border-left: 2px solid black;
+    }
+
+    .outside-search-bar input {
+        width: 100vw;
+        padding: 10px;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 16px;
+    }
+
+    .taskbar-button img {
+        height: 25px;
+    }
+    /* IMage Scrollling */
+    .image-slider{
+        display: flex;
+        height: 100px;
+        margin: auto;
+    }
+    .gallery-container{
+        width: 100px;
+    }
+    .gallery img{
+        height: 70px;
+        width: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .taskbar-buttons {
+        gap: 8px;
+    }
+
+    .taskbar-button img {
+        height: 20px;
+    }
+
+    .outside-search-bar input {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    /* IMage Scrollling */
+    .image-slider{
+        height: 80px;
+    }
+    .gallery-container{
+        width: 100px;
+    }
+    .gallery img{
+        height: 50px;
+        width: 50px;
+    }
+}
