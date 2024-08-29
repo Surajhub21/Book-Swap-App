@@ -74,6 +74,37 @@
     </div>
     <!-- Image scrolling End -->
 
+    <!-- Add Items Start -->
+    <div class="addListBtn">
+        <button id="addItemBtn">Add Item</button>
+    </div>
+
+    <div class="container">
+        <div id="itemList">
+            <!-- Here add the title and description -->
+        </div>
+    </div>
+
+    <!-- Modal for adding title, description, and image -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Item</h2>
+            <form id="itemForm">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <label for="image">Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+
+                <button type="submit">Add Item</button>
+            </form>
+        </div>
+    </div>
+    <!-- Add Items End -->
 </body>
 
 <script src="index.js"></script>
