@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Add Item Function
-
 // Get modal element
 const modal = document.getElementById('myModal');
 // Get open modal button
@@ -39,19 +38,18 @@ itemForm.addEventListener('submit', function(event) {
     if (title && description && image) {
         const itemList = document.getElementById('itemList');
 
-        // Create card container
-        const card = document.createElement('div');
-        card.className = 'card';
-
-        // Create card content container
-        const cardContain = document.createElement('div');
-        cardContain.className = 'card-contain';
+        // Create list item
+        const listItem = document.createElement('li');
+        listItem.className = 'list-item';
 
         // Create and set img for image
         const img = document.createElement('img');
-        img.className = 'card-img';
         img.alt = title;
         img.src = URL.createObjectURL(image);
+
+        // Create content container
+        const content = document.createElement('div');
+        content.className = 'content';
 
         // Create and set h3 for title
         const h3 = document.createElement('h3');
@@ -67,17 +65,17 @@ itemForm.addEventListener('submit', function(event) {
         readMoreBtn.className = 'btn';
         readMoreBtn.textContent = 'Read more';
 
-        // Append elements to card content container
-        cardContain.appendChild(img);
-        cardContain.appendChild(h3);
-        cardContain.appendChild(p);
-        cardContain.appendChild(readMoreBtn);
+        // Append elements to content container
+        content.appendChild(h3);
+        content.appendChild(p);
+        content.appendChild(readMoreBtn);
 
-        // Append content container to card
-        card.appendChild(cardContain);
+        // Append img and content to list item
+        listItem.appendChild(img);
+        listItem.appendChild(content);
 
-        // Append card to the item list
-        itemList.appendChild(card);
+        // Append list item to the item list
+        itemList.appendChild(listItem);
 
         // Clear form fields
         document.getElementById('title').value = '';
