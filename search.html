@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Taskbar</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="search.css">
 </head>
 
 <body>
@@ -41,44 +41,15 @@
                 <img src="img/details-removebg-preview.png" alt="More Item" width="25px">
             </div>
         </div> <!-- Whole Taskber End-->
-
         <!-- Outside SearhBer For Mobile Screen-->
         <div class="outSideSearchBer">
             <div class="outside-search-bar">
-                <a id="search-link" href="/search.html">
-                    <p class="placeholder-text">Search book by name, author or category</p>
+                    <input type="text" id="searchInput" placeholder="Search...">
                     <img src="img/search.256x256.png" height="24px">
-                </a>
             </div>
             <p>Lorem ipsum dolor sit amet,<a id="add-book" href="#">Add Book.</a></p>
         </div>
     </header>
-
-
-    <!-- Image scrolling  -->
-    <div class="image-slider">
-        <div class="gallery-container">
-            <div class="gallery"><img src="img/logo_icon.png" alt="Image 1"></div>
-            <div class="gallery"><img src="img/profile-circle.256x256.png" alt="Image 2"></div>
-            <div class="gallery"><img src="img/search.256x256.png" alt="Image 3"></div>
-            <div class="gallery"><img src="img/shopping-cart.256x256.png" alt="Image 3"></div>
-            <div class="gallery"><img src="img/notification.230x256.png" alt="Image"></div>
-            <div class="gallery"><img src="img/search.256x256.png" alt="Image 3"></div>
-            <div class="gallery"><img src="img/shopping-cart.256x256.png" alt="Image 3"></div>
-            <div class=" gallery"><img src="img/search.256x256.png" alt="Image 3"></div>
-            <div class="gallery"><img src="img/shopping-cart.256x256.png" alt="Image 3"></div>
-            <div class="gallery"><img src="img/notification.230x256.png" alt="Image"></div>
-            <div class=" gallery"><img src="img/search.256x256.png" alt="Image 3"></div>
-            <div class="gallery"><img src="img/shopping-cart.256x256.png" alt="Image 3"></div>
-            <div class="gallery"><img src="img/notification.230x256.png" alt="Image"></div>
-            <div class=" gallery"><img src="img/search.256x256.png" alt="Image 3"></div>
-            <div class="gallery"><img src="img/shopping-cart.256x256.png" alt="Image 3"></div>
-            <div class="gallery"> <img src="img/notification.230x256.png" alt="Image 3"></div>
-
-        </div>
-    </div>
-    <!-- Image scrolling End -->
-
 
     <!-- Add Items Start -->
     <div class="addListBtn">
@@ -89,9 +60,10 @@
         <div id="itemList">
             <!-- Here add the title and description -->
         </div>
+        <p id="noResults" style="display: none;">No Books</p>
     </div>
 
-
+    
     <!-- Modal for adding title, description, and image -->
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -113,6 +85,7 @@
     </div>
     <!-- Add Items End -->
 
+    <!-- /******** *******/ -->
     <footer>
         <div class="footer-div">
             <div class="footer-col">

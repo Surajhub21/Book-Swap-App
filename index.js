@@ -2,11 +2,20 @@
 document.addEventListener("DOMContentLoaded", function() {
     const detailsIcon = document.querySelector('.details_icon');
     const taskbar = document.querySelector('.taskbar');
+    const taskbarButtons = document.querySelector('.taskbar-buttons');
 
     detailsIcon.addEventListener('click', function() {
         taskbar.classList.toggle('active');
+        if (taskbar.classList.contains('active')) {
+            taskbarButtons.style.maxHeight = taskbarButtons.scrollHeight + "px";
+            taskbarButtons.style.opacity = "1";
+        } else {
+            taskbarButtons.style.maxHeight = "0";
+            taskbarButtons.style.opacity = "0";
+        }
     });
 });
+
 
 // Add Item Function
 // Get modal element
@@ -105,3 +114,36 @@ function outsideClick(e) {
         modal.style.display = 'none';
     }
 }
+
+// Search functionality
+document.getElementById('searchInput').addEventListener('input', function () {
+    const searchValue = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.list-item');
+    let found = false;
+
+    cards.forEach(function (card) {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        if (title.includes(searchValue)) {
+            card.style.opacity = '1'; // Show the item by making it visible
+            card.style.position = 'relative'; // Ensure it's in the flow
+            card.style.height = ''; // Reset height in case it was set to 0
+            found = true;
+        } else {
+            card.style.opacity = '0'; // Hide the item by making it invisible
+            card.style.position = 'absolute'; // Remove it from the flow
+            card.style.height = '0'; // Collapse its height to avoid space
+        }
+    });
+
+    // Show or hide "No Books" message based on search results
+    document.getElementById('noResults').style.display = found || searchValue === '' ? 'none' : 'block';
+
+    // If the search is empty, reset all items to be visible
+    if (searchValue === '') {
+        cards.forEach(function (card) {
+            card.style.opacity = '1';
+            card.style.position = 'relative';
+            card.style.height = ''; // Reset height to default
+        });
+    }
+});
