@@ -20,7 +20,7 @@
             <div class="taskbar-buttons">
                 <!-- SearchBer -->
                 <div class="search-bar">
-                    <input type="text" placeholder="Search...">
+                    <input type="text" id="searchInput" placeholder="Search...">
                     <a href="#">
                         <img src="img/search.256x256.png" alt="search" width="30px">
                     </a>
@@ -44,27 +44,66 @@
         <!-- Outside SearhBer For Mobile Screen-->
         <div class="outSideSearchBer">
             <div class="outside-search-bar">
-                    <input type="text" id="searchInput" placeholder="Search...">
-                    <img src="img/search.256x256.png" height="24px">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <img src="img/search.256x256.png" height="24px">
             </div>
             <p>Lorem ipsum dolor sit amet,<a id="add-book" href="#">Add Book.</a></p>
         </div>
     </header>
 
+    <!-- /********/ -->
+    <div class="search-filter-container">
+        <div class="sort-dropdown">
+            <button class="dropdown-btn">
+                <span>Sort</span>
+                <i class="arrow-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#" class="filter-item" data-max-price="199">
+                    <span class="circle"></span>Under 199$
+                </a>
+                <a href="#" class="filter-item" data-max-price="499">
+                    <span class="circle"></span>Under 499$
+                </a>
+                <a href="#" class="filter-item" data-max-price="999">
+                    <span class="circle"></span>Under 999$
+                </a>
+            </div>
+        </div>
+    
+        <div class="filter-dropdown">
+            <button class="dropdown-btn">
+                <span>Filter</span>
+                <i class="arrow-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#" class="filter-item">
+                    <span class="circle"></span>Filter 1
+                </a>
+                <a href="#" class="filter-item">
+                    <span class="circle"></span>Filter 2
+                </a>
+                <a href="#" class="filter-item">
+                    <span class="circle"></span>Filter 3
+                </a>
+            </div>
+        </div>
+    </div>
+    
     <!-- Add Items Start -->
     <div class="addListBtn">
         <button id="addItemBtn">Add Item</button>
     </div>
-    <h6 style="margin: 0 2px;">Book From You Prefrences</h6>
+    <h6 style="margin: 0 2px;">Book From Your Preferences</h6>
     <div class="container">
-        <div id="itemList">
-            <!-- Here add the title and description -->
-        </div>
+        <!-- Item List -->
+        <ul id="itemList">
+            <!-- Items will be added here -->
+        </ul>
         <p id="noResults" style="display: none;">No Books</p>
     </div>
 
-    
-    <!-- Modal for adding title, description, and image -->
+    <!-- Modal for adding title, description, price , and image -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -75,6 +114,10 @@
 
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" rows="4" required></textarea>
+
+                <label for="description">Price:</label>
+                <textarea id="price" name="price" rows="1"
+                required></textarea>
 
                 <label for="image">Image:</label>
                 <input type="file" id="image" name="image" accept="image/*" required>

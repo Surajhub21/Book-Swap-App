@@ -42,9 +42,10 @@ itemForm.addEventListener('submit', function(event) {
 
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;
+    const price = document.getElementById('price').value; // Assuming a price input field exists
     const image = document.getElementById('image').files[0];
 
-    if (title && description && image) {
+    if (title && description && price && image) {
         const itemList = document.getElementById('itemList');
 
         // Create list item
@@ -68,6 +69,11 @@ itemForm.addEventListener('submit', function(event) {
         const p = document.createElement('p');
         p.textContent = description;
 
+        // Create and set p for price at the bottom
+        const priceP = document.createElement('p');
+        priceP.textContent = `$${price}`;
+        priceP.className = 'price';
+
         // Create Read More button
         const readMoreBtn = document.createElement('a');
         readMoreBtn.href = '#';
@@ -77,6 +83,7 @@ itemForm.addEventListener('submit', function(event) {
         // Append elements to content container
         content.appendChild(h3);
         content.appendChild(p);
+        content.appendChild(priceP);
         content.appendChild(readMoreBtn);
 
         // Append img and content to list item
@@ -89,6 +96,7 @@ itemForm.addEventListener('submit', function(event) {
         // Clear form fields
         document.getElementById('title').value = '';
         document.getElementById('description').value = '';
+        document.getElementById('price').value = ''; // Clear the price field
         document.getElementById('image').value = '';
 
         // Close modal
@@ -146,4 +154,58 @@ document.getElementById('searchInput').addEventListener('input', function () {
             card.style.height = ''; // Reset height to default
         });
     }
+});
+
+// Filter functionality
+document.querySelectorAll('.filter-item').forEach(item => {
+    item.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Clear the fill of all circles
+        document.querySelectorAll('.filter-item .circle').forEach(circle => {
+            circle.style.backgroundColor = 'transparent';
+        });
+
+        // Fill the clicked item's circle with black
+        this.querySelector('.circle').style.backgroundColor = 'black';
+
+        // Get the maximum price from the clicked item
+        const maxPrice = this.getAttribute('data-max-price');
+
+        // Filter items based on the selected price range
+        filterItemsByPrice(maxPrice);
+    });
+});
+
+// Function to filter items by price
+function filterItemsByPrice(maxPrice) {
+    const cards = document.querySelectorAll('.list-item');
+    let found = false;
+
+    cards.forEach(function (card) {
+        const priceText = card.querySelector('.price').textContent.replace('$', '');
+        const price = parseFloat(priceText);
+
+        if (price <= maxPrice) {
+            card.style.opacity = '1'; // Show the item by making it visible
+            card.style.position = 'relative'; // Ensure it's in the flow
+            card.style.height = ''; // Reset height in case it was set to 0
+            found = true;
+        } else {
+            card.style.opacity = '0'; // Hide the item by making it invisible
+            card.style.position = 'absolute'; // Remove it from the flow
+            card.style.height = '0'; // Collapse its height to avoid space
+        }
+    });
+
+    // Show or hide "No Books" message based on filtered results
+    document.getElementById('noResults').style.display = found ? 'none' : 'block';
+}
+
+//
+document.querySelectorAll('.filter-item').forEach(item => {
+    item.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        this.classList.toggle('selected');
+    });
 });

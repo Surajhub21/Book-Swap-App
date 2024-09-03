@@ -230,6 +230,100 @@ form button:hover {
 }
 /* Add item Card End*/
 
+ /* Seach Filter */
+ .search-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.sort-dropdown, .filter-dropdown {
+    position: relative;
+}
+
+.dropdown-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.dropdown-btn .arrow-down{
+    margin-left: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    margin-top: 5px;
+    left: 0;
+}
+
+.filter-dropdown .dropdown-content {
+    right: 0;
+    left: auto;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.sort-dropdown:hover .dropdown-content,
+.filter-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.filter-item .circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.filter-item.selected .circle {
+    background-color: black;
+}
+
+@media (max-width: 768px) {
+    .search-filter-container {
+        padding: 8px;
+        align-items: stretch;
+    }
+
+    .sort-dropdown, .filter-dropdown {
+        margin-bottom: 10px;
+        padding: 10px 10px;
+        font-size: 14dp;
+    }
+}
 /********** footer Start ***********/
 footer{
     margin-top: 300px;
