@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="add_book.css" />
+</head>
+
+<body>
+    <header class="header">
+        <!-- Taskber Start -->
+        <div class="taskbar">
+            <!-- logo -->
+            <div class="logo">
+                <img src="img/logo_icon.png" alt="Logo">
+            </div>
+            <!-- Whole Taskber -->
+            <div class="taskbar-buttons">
+                <!-- SearchBer -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <a href="#">
+                        <img src="img/search.256x256.png" alt="search" width="30px">
+                    </a>
+                </div>
+                <!-- TaskBer Button -->
+                <div class="taskbar-button">
+                    <img src="img/notification.230x256.png" alt="Notification">
+                </div>
+                <div class="taskbar-button">
+                    <img src="img/shopping-cart.256x256.png" alt="Cart">
+                </div>
+                <div class="taskbar-button">
+                    <img src="img/profile-circle.256x256.png" alt="Profile">
+                </div>
+            </div>
+            <!-- TaskBer Button End -->
+            <div class="details_icon">
+                <img src="img/details-removebg-preview.png" alt="More Item" width="25px">
+            </div>
+        </div> <!-- Whole Taskber End-->
+
+        <!-- Outside SearhBer For Mobile Screen-->
+        <div class="outSideSearchBer">
+            <div class="outside-search-bar">
+                <a id="search-link" href="/search.html">
+                    <p class="placeholder-text">Search book by name, author or category</p>
+                    <img src="img/search.256x256.png" height="24px">
+                </a>
+            </div>
+            <p>Lorem ipsum dolor sit amet,<a id="add-book" href="#">Add Book.</a></p>
+        </div>
+    </header>
+
+    <!-- Body Start -->
+
+    <div class="container">
+        <h2>Add Book</h2>
+        <!-- Book Images -->
+        <div class="form-group">
+            <label for="book-images">Book Images</label>
+            <input type="file" id="book-images" multiple>
+            <div id="image-preview"></div>
+        </div>
+
+        <!-- Book Name, Author, Condition -->
+        <div class="form-group">
+            <label for="book-name">Book Name</label>
+            <input type="text" id="book-name">
+        </div>
+
+        <div class="form-group">
+            <label for="author-name">Author Name</label>
+            <input type="text" id="author-name">
+        </div>
+
+        <div class="form-group">
+            <label class="condition-label" for="book-condition">Book Condition
+                <div class="info-container">
+                    <button class="info-button">i</button>
+                    <div class="tooltip-message">Good, Very Good, Poor, etc.</div>
+                </div>
+            </label>
+            <select id="book-condition">
+                <option value="new">New</option>
+                <option value="very-good">Very Good</option>
+                <option value="good">Good</option>
+                <option value="fair">Fair</option>
+                <option value="poor">Poor</option>
+            </select>
+        </div>
+
+        <!-- Book Category -->
+        <div class="form-group">
+            <label for="book-category">Book Category</label>
+            <select id="book-category">
+                <option value="fiction">Fiction</option>
+                <option value="non-fiction">Non-Fiction</option>
+                <option value="education">Education</option>
+                <!-- Add more categories as needed -->
+            </select>
+        </div>
+
+        <!-- Book Description -->
+        <div class="form-group">
+            <label for="book-description">Book Description</label>
+            <textarea id="book-description" rows="4"></textarea>
+        </div>
+
+        <!-- Buying Price, Selling Price, and Calculation -->
+        <div class="form-group input-with-button">
+            <label for="book-description">Buying Price</label>
+            <input type="number" id="buying-price" placeholder="Buying Price">
+            <button id="calculate-button">Calculate</button>
+        </div>
+
+        <div class="form-group">
+            <label for="selling-price">Selling Price</label>
+            <input type="number" id="selling-price">
+        </div>
+
+        <!-- Selling Price Negotiable -->
+        <div class="form-group" id="checkBox">
+            <input type="checkbox" id="negotiable-checkbox">
+            <label for="negotiable-checkbox">Is your selling price negotiable?</label>
+        </div>
+
+        <div class="form-group">
+            <input type="number" id="min-selling-price" placeholder="Minimum Selling Price" disabled>
+        </div>
+
+        <!-- Swap Book Checkbox -->
+        <div class="form-group" id="checkBox">
+            <input type="checkbox" id="swap-checkbox">
+            <label for="swap-checkbox">Do you want to swap your book for another book?</label>
+        </div>
+
+        <!-- Swap Details -->
+        <div id="swap-details" style="display: none;">
+            <div class="form-group">
+                <label for="swap-book-image">Book Image</label>
+                <input type="file" id="swap-book-image">
+            </div>
+
+            <div class="form-group">
+                <label for="swap-book-name">Book Name</label>
+                <input type="text" id="swap-book-name">
+            </div>
+
+            <div class="form-group">
+                <label for="swap-author-name">Author Name</label>
+                <input type="text" id="swap-author-name">
+            </div>
+
+            <div class="form-group">
+                <label for="swap-book-condition">Book Condition</label>
+                <select id="swap-book-condition">
+                    <option value="new">New</option>
+                    <option value="very-good">Very Good</option>
+                    <option value="good">Good</option>
+                    <option value="fair">Fair</option>
+                    <option value="poor">Poor</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="swap-book-description">Book Description</label>
+                <textarea id="swap-book-description" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="swap-category">Category</label>
+                <select id="swap-category">
+                    <option value="fiction">Fiction</option>
+                    <option value="non-fiction">Non-Fiction</option>
+                    <option value="education">Education</option>
+                    <!-- Add more categories as needed -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+            <button id="save-draft-button">Save Draft</button>
+            <button id="publish-button">Publish</button>
+        </div>
+    </div>
+
+    <!-- Body End -->
+    <footer>
+        <div class="footer-div">
+            <div class="footer-col">
+                <h4>products</h4>
+                <ul>
+                    <li><a href="#">teams</a></li>
+                    <li><a href="#">advertising</a></li>
+                    <li><a href="#">talent</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>network</h4>
+                <ul>
+                    <li><a href="#">technology</a></li>
+                    <li><a href="#">science</a></li>
+                    <li><a href="#">business</a></li>
+                    <li><a href="#">professional</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>company</h4>
+                <ul>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">legal</a></li>
+                    <li><a href="#">contact us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<script src="add_book.js"></script>
+
+</html>

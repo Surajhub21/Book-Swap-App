@@ -1,0 +1,570 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.taskbar-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Taskbar styles */
+.taskbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #888;
+    padding: 10px;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.taskbar-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.taskbar-button img {
+    height: 30px;
+    cursor: pointer;
+}
+
+.details_icon {
+    display: none;
+    cursor: pointer;
+}
+
+.book-add-link {
+    display: none;
+}
+
+/* Search bar styles */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 20px;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(red, green, blue, alpha);
+    padding: 0 20px;
+    gap: 2px;
+}
+
+.search-bar:hover input {
+    width: 200px;
+    border: 3px solid #ccc;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.search-bar input {
+    width: 0;
+    outline: none;
+    border: none;
+    transition: 0.8s;
+    background: transparent;
+    padding: 10px;
+    font-size: 12px;
+}
+
+/* Hide Some Function */
+.details_icon {
+    display: none;
+}
+
+.outSideSearchBer {
+    display: none;
+}
+/************* Body Start **********/
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Form Styles */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+input[type="text"],
+input[type="number"],
+input[type="file"],
+select,
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+input[type="file"] {
+    padding: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Image Preview */
+#image-preview {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+#image-preview img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button Styles */
+.input-with-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#calculate-button {
+    background-color: #007bff;
+    color: white;
+}
+
+#publish-button {
+    background-color: #28a745;
+    color: white;
+}
+
+#save-draft-button {
+    background-color: #ffc107;
+    color: white;
+}
+
+/* Checkbox and Conditional Fields */
+input[type="checkbox"] {
+    margin-right: 10px;
+    width: auto;
+}
+
+#min-selling-price:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+#swap-details {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+/* Info Button and Tooltip */
+.condition-label {
+    display: flex;
+    align-items: center;
+}
+
+.info-container {
+    width: 50%;
+    position: relative;
+    margin-left: 10px;
+}
+
+.info-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-button:hover + .tooltip-message,
+.tooltip-message:hover {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-message {
+    visibility: hidden;
+    opacity: 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip-message::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent;
+}
+
+/* :checkBox */
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+#swap-details {
+    display: none;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+/* Swap-specific form group styling */
+#swap-details .form-group {
+    margin-bottom: 10px;
+}
+
+/* Ensure uniform input field lengths */
+input[type="text"],
+input[type="number"],
+input[type="file"],
+select,
+textarea {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .form-group {
+        flex-direction: column;
+    }
+
+    .input-with-button {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    #image-preview img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/************* Body End **********/
+
+/********** footer Start ***********/
+footer{
+    margin-top: 300px;
+}
+
+.footer-div{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+    background-color: #2d2e33;
+    padding: 60px 10%;
+}
+ul{
+    list-style: none;
+}
+
+.footer-col{
+    width: 25%;
+}
+
+.footer-col h4{
+    position: relative;
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 22px;
+    color: #f1bc0d;
+    text-transform: capitalize;
+}
+
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    background-color: #27c0ac;
+    height: 2px;
+    width: 40px;
+}
+
+ul li:not(:last-child){
+    margin-bottom: 8px;
+}
+
+ul li a{
+    display: block;
+    font-size: 19px;
+    text-transform: capitalize;
+    color: #bdb6b6;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+ul li a:hover{
+    color: white;
+    padding-left: 2px;
+}
+
+.links a{
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    color: white;
+    background-color: rgba(40, 130, 214, 0.8);
+    margin: 0 8px 8px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover{
+    color: #4d4f55;
+    background-color: white;
+}
+
+@media(max-width: 740px){
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .footer-col h4::before{
+        all: unset;
+    }
+}
+
+@media(max-width: 555px){
+    .footer-col{
+        width: 100%;
+    }
+}
+/********** footer End ***********/
+
+/* Make it responsive */
+@media (max-width: 768px) {
+    .header {
+        background-color: #949090;
+    }
+
+    .taskbar {
+        padding: 5px;
+        box-shadow: 0 4px 2px -2px gray;
+    }
+
+    .logo img {
+        height: 30px;
+    }
+
+    .taskbar-buttons {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 4px solid rgb(33, 37, 41);
+        /* Border at the bottom of the taskbar */
+    }
+
+    .details_icon {
+        display: block;
+    }
+
+    .taskbar-button {
+        width: 100%;
+        padding: 10px 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .taskbar-button:first-child {
+        border-top: none;
+    }
+
+    .taskbar.active .taskbar-buttons {
+        display: flex;
+        position: absolute;
+        top: 50px;
+        padding: 0 5px;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        width: calc(100% - 20px);
+        /* Adjusted width to fit the screen */
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+        z-index: 1;
+    }
+
+    .taskbar.active {
+        height: auto;
+    }
+
+    .search-bar {
+        display: none;
+    }
+
+    .taskbar-button img {
+        height: 25px;
+    }
+
+    /* SearchBar Show */
+    .outSideSearchBer {
+        display: block;
+        max-width: 100%;
+        padding: 3px 5px 0.1px;
+    }
+
+    .outside-search-bar {
+        width: 95%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid #ccc;
+        border-radius: 20px;
+        padding: 2px;
+    }
+
+    .outside-search-bar img {
+        padding: 0 10px;
+        border-left: 2px solid black;
+    }
+
+    .outside-search-bar a {
+        /* Make this input type for input box */
+        display:flex;
+        justify-content: space-between;
+        text-decoration: none;
+        color: #fff;
+        width: 100vw;
+        border: none;
+        outline: none;
+        padding: 0 0 0 5px;
+    }
+
+    .book-add-link {
+        display: block;
+        padding: 0 0 1px 0;
+    }
+
+    .outSideSearchBer p {
+        font-size: 8px;
+        color: #fff;
+    }
+
+    .outSideSearchBer a#add-book {
+        border-radius: 3px;
+        padding: 2px 3px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 7px;
+    }
+}
+@media (max-width: 480px) {
+    .taskbar-buttons {
+        gap: 8px;
+    }
+
+    .taskbar-button img {
+        height: 20px;
+    }
+
+    .outside-search-bar input {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+}
